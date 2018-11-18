@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>2.0.0-alpha</Version>
+    <Authors>Christian Blechert</Authors>
+    <Product>PerrysNetConsoleHtml</Product>
+    <PackageLicenseUrl>https://github.com/perryflynn/PerrysNetConsoleHtml/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/perryflynn/PerrysNetConsoleHtml</PackageProjectUrl>
+    <PackageTags>c# .net console perrysnetconsole html</PackageTags>
+    <Description>Write output of PerrysNetConsole as fancy HTML</Description>
+    <Copyright>Copyright 2018</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>PerrysNetConsoleHtml</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PerrysNetConsole" Version="2.0.0-alpha" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Asset\terminal.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

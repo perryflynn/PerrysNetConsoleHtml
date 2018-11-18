@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PerrysNetConsole, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PerrysNetConsole.1.2.0\lib\net45\PerrysNetConsole.dll</HintPath>
+    <Reference Include="PerrysNetConsoleStd, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PerrysNetConsole.2.0.0-alpha\lib\netstandard2.0\PerrysNetConsoleStd.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,9 +53,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PerrysNetConsoleHtml\PerrysNetConsoleHtml.csproj">
-      <Project>{8e235ed1-aa26-4992-92b0-490f8ec19ff1}</Project>
-      <Name>PerrysNetConsoleHtml</Name>
+    <ProjectReference Include="..\PerrysNetConsoleHtmlStd\PerrysNetConsoleHtmlStd.csproj">
+      <Project>{f2fdbff6-ff9a-4a98-83ca-dc20fb509582}</Project>
+      <Name>PerrysNetConsoleHtmlStd</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

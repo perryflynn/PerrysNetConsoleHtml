@@ -15,10 +15,15 @@ namespace PerrysNetConsoleHtml
         public String HtmlTemplate { get; set; }
         public String Title { get; set; }
         public bool IsPaused { get; set; }
+        public bool SuppressColors { get; set; }
 
         public CoExHtmlWriter()
         {
-            this.HtmlTemplate = Properties.Resources.terminal;
+            var fullPath = System.Reflection.Assembly.GetAssembly(typeof(CoExHtmlWriter)).Location;
+            var theDirectory = Path.GetDirectoryName(fullPath);
+            var htmlfile = Path.Combine(theDirectory, "Asset/terminal.html");
+
+            this.HtmlTemplate = File.ReadAllText(htmlfile);
             this.InitializeComponent();
         }
 
@@ -55,15 +60,19 @@ namespace PerrysNetConsoleHtml
         {
             if (this.IsPaused == false)
             {
-                try
+                var format = "<span style=\"background-color:{0}; color:{1};\">{2}</span>";
+                
+                var bg = ColorConverter.GetHexcode(CoEx.DefaultBackgroundColor);
+                var fg = ColorConverter.GetHexcode(CoEx.DefaultForegroundColor);
+                
+                if(this.SuppressColors == false)
                 {
-                    var format = "<span style=\"background-color:{0}; color:{1};\">{2}</span>";
-                    var bg = ColorConverter.GetHexcode(CoEx.BackgroundColor);
-                    var fg = ColorConverter.GetHexcode(CoEx.ForegroundColor);
-                    var htmltext = System.Net.WebUtility.HtmlEncode(text);
-                    this.StringWriter.Write(String.Format(format, bg, fg, htmltext));
+                    bg = ColorConverter.GetHexcode(CoEx.BackgroundColorOrDefault);
+                    fg = ColorConverter.GetHexcode(CoEx.ForegroundColorOrDefault);
                 }
-                catch { }
+                
+                var htmltext = System.Net.WebUtility.HtmlEncode(text);
+                this.StringWriter.Write(String.Format(format, bg, fg, htmltext));
             }
         }
 
@@ -89,12 +98,18 @@ namespace PerrysNetConsoleHtml
 
         public override string ToString()
         {
+            var bg = CoEx.DefaultBackgroundColor;
+            if(this.SuppressColors == false)
+            {
+                bg = CoEx.BackgroundColorOrDefault;
+            }
+
             if (this.StringWriter != null)
             {
                 return this.HtmlTemplate
                     .Replace("{{TERMTITLE}}", this.Title)
-                    .Replace("{{TERMBACKGROUND}}", ColorConverter.GetHexcode(CoEx.BackgroundColor))
-                    .Replace("﻿{{TERMCONTENT}}", this.StringWriter.ToString().Replace("\r", ""));
+                    .Replace("{{TERMBACKGROUND}}", ColorConverter.GetHexcode(bg))
+                    .Replace("{{TERMCONTENT}}", this.StringWriter.ToString().Replace("\r", ""));
             }
             return null;
         }

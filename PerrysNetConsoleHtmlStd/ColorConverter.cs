@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PerrysNetConsole;
 
 namespace PerrysNetConsoleHtml
 {
     public static class ColorConverter
     {
+
+        public enum ColorType { Background, Foreground }
 
         private static List<ColorItem> Colors = new List<ColorItem>()
         {
@@ -34,19 +37,11 @@ namespace PerrysNetConsoleHtml
             return Colors.Where(v => v.ConsoleColor == color).Single().Hexcode;
         }
 
-        public static ConsoleColor GetConsoleColor(string hexcodeorname)
+        public static string GetHexcode(ColorScheme scheme, ColorType type)
         {
-            return Colors.Where(v => v.Hexcode == hexcodeorname || v.Name == hexcodeorname).Single().ConsoleColor;
-        }
-
-        public static string GetName(ConsoleColor color)
-        {
-            return Colors.Where(v => v.ConsoleColor == color).Single().Name;
-        }
-
-        public static string GetName(string hexcode)
-        {
-            return Colors.Where(v => v.Hexcode == hexcode).Single().Name;
+            var defcolor = (type == ColorType.Background ? CoEx.DefaultBackgroundColor : CoEx.DefaultForegroundColor);
+            var color = type == ColorType.Background ? scheme.Background : scheme.Foreground;
+            return GetHexcode(color ?? defcolor);
         }
 
     }

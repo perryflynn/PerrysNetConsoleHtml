@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PerrysNetConsoleHtml.Properties {
+namespace PerrysNetConsoleHtmlStd.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace PerrysNetConsoleHtml.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PerrysNetConsoleHtml.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PerrysNetConsoleHtmlStd.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,26 +57,6 @@ namespace PerrysNetConsoleHtml.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
-        ///&lt;html lang=&quot;en&quot;&gt;
-        ///    &lt;head&gt;
-        ///        &lt;!-- Required meta tags --&gt;
-        ///        &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&gt;
-        ///
-        ///        &lt;!-- Bootstrap CSS --&gt;
-        ///        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css&quot; integrity=&quot;sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M&quot; crossorigin=&quot;anonymous&quot;&gt;
-        ///        
-        ///        &lt;style type=&quot;text/css&quot;&gt;
-        ///            [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string terminal {
-            get {
-                return ResourceManager.GetString("terminal", resourceCulture);
             }
         }
     }
