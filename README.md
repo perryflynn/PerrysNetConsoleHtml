@@ -15,4 +15,4 @@ using (var writer = new CoExHtmlWriter(tpl, Encoding.UTF8) { Title = "A fancy de
 
 ## Demo
 
-![Demo image](./doc/demo.jpg)
+![Demo image](./docs/demo.jpg)
