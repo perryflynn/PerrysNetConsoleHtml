@@ -42,7 +42,10 @@ namespace PerrysNetConsoleHtml
         protected void InitializeComponent()
         {
             this.StringWriter = new StringWriter();
-            this.Title = AppDomain.CurrentDomain.FriendlyName;
+            if (string.IsNullOrWhiteSpace(this.Title))
+            {
+                this.Title = AppDomain.CurrentDomain.FriendlyName;
+            }
             CoEx.OnWrite += this.OnCoExWrite;
         }
 

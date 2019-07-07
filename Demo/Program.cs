@@ -36,7 +36,7 @@ namespace Demo
             tabledata.Settings.Border.Enabled = true;
             tabledata.Settings.Border.HorizontalLineBody = BorderConf.HorizontalLineAlwaysOnFunc;
 
-            using (var writer = new CoExHtmlWriter())
+            using (var writer = new CoExHtmlWriter() { Title = "A fancy demo" })
             {
                 CoEx.WriteTitleLarge("A fancy demo");
                 CoEx.WriteLine();
