@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PerrysNetConsoleHtml
 {
+    /// <summary>
+    /// Represents a single ConsoleColor <-> HTML color mapping
+    /// </summary>
     public class ColorItem
     {
 

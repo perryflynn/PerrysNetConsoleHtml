@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PerrysNetConsole;
 
 namespace PerrysNetConsoleHtml
 {
+    /// <summary>
+    /// Converts Console Colors into HTML Colors
+    /// </summary>
     public static class ColorConverter
     {
 

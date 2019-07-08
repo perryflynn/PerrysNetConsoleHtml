@@ -1,16 +1,15 @@
 ﻿using PerrysNetConsole;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PerrysNetConsoleHtml
 {
+    /// <summary>
+    /// Core class to write HTML files
+    /// </summary>
     public class CoExHtmlWriter : IDisposable
     {
-
         public StringWriter StringWriter { get; protected set; }
         public String HtmlTemplate { get; set; }
         public String Title { get; set; }
@@ -19,23 +18,19 @@ namespace PerrysNetConsoleHtml
 
         public CoExHtmlWriter()
         {
-            var fullPath = System.Reflection.Assembly.GetAssembly(typeof(CoExHtmlWriter)).Location;
-            var theDirectory = Path.GetDirectoryName(fullPath);
-            var htmlfile = Path.Combine(theDirectory, "Asset/terminal.html");
-
-            this.HtmlTemplate = File.ReadAllText(htmlfile);
+            this.HtmlTemplate = ResourceHelper.GetDefaultTemplate();
             this.InitializeComponent();
         }
 
-        public CoExHtmlWriter(string html)
+        public CoExHtmlWriter(string htmlTemplate)
         {
-            this.HtmlTemplate = html;
+            this.HtmlTemplate = htmlTemplate;
             this.InitializeComponent();
         }
 
-        public CoExHtmlWriter(FileInfo htmlfile, Encoding encoding)
+        public CoExHtmlWriter(FileInfo htmlFile, Encoding fileEncoding)
         {
-            this.HtmlTemplate = File.ReadAllText(htmlfile.FullName, encoding);
+            this.HtmlTemplate = File.ReadAllText(htmlFile.FullName, fileEncoding);
             this.InitializeComponent();
         }
 
